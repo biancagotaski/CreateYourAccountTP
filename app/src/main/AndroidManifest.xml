@@ -19,5 +19,5 @@
         <activity android:name=".FormActivity" />
         <activity android:name=".models.RegisterCard"></activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

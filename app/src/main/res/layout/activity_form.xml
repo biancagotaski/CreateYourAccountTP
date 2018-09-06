@@ -28,7 +28,7 @@ tools:context=".FormActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Senha"
-        android:inputType="text" />
+        android:inputType="textPassword" />
 </android.support.design.widget.TextInputLayout>
 
 <android.support.design.widget.TextInputLayout
@@ -39,7 +39,7 @@ tools:context=".FormActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="E-mail"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         tools:ignore="TextFields" />
 </android.support.design.widget.TextInputLayout>
 
@@ -51,7 +51,7 @@ tools:context=".FormActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Telefone"
-        android:inputType="text" />
+        android:inputType="text|number" />
 </android.support.design.widget.TextInputLayout>
 
 <android.support.design.widget.TextInputLayout
@@ -62,7 +62,7 @@ tools:context=".FormActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Celular"
-        android:inputType="text"
+        android:inputType="text|number"
         tools:ignore="TextFields" />
 </android.support.design.widget.TextInputLayout>
 
@@ -74,7 +74,7 @@ tools:context=".FormActivity">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="CPF"
-        android:inputType="text"
+        android:inputType="text|number"
         tools:ignore="TextFields" />
 </android.support.design.widget.TextInputLayout>
 

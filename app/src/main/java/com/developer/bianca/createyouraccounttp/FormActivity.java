@@ -23,10 +23,6 @@ public class FormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
-
-        //DatabaseReference contactsRef = FirebaseDatabase.getInstance().getReference("Contacts");
-
-        registersRef.setValue("Hello World"); //it's not working
     }
 
     public void saveContact(View view){
@@ -46,7 +42,7 @@ public class FormActivity extends AppCompatActivity {
 
         RegisterCard registerCard = new RegisterCard(name, email, phone, cel, cpf, city);
 
-        registersRef.setValue(registerCard);
+        registersRef.push().setValue(registerCard);
 
         registersRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

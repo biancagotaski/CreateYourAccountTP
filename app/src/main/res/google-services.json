@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "140028108036-7ktjtboj7g95ihmuuvvb7g6d9k6gceea.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.developer.bianca.createyouraccounttp",
-            "certificate_hash": "7b356561a6127ab94491d1b660055dad6ff66980"
-          }
-        },
-        {
           "client_id": "140028108036-as9ubqkoj17adqm1rrp4saukkp27gnha.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "140028108036-as9ubqkoj17adqm1rrp4saukkp27gnha.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2

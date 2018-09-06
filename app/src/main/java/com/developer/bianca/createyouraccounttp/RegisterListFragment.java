@@ -21,45 +21,45 @@ public class RegisterListFragment extends Fragment{
 
     public RegisterListFragment() {}
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_register_list, container, false);
-        registerList = rootView.findViewById(R.id.register_list);
-
-        Bundle args = getArguments();
-        if(args != null){
-            String fbEndpoint = args.getString(Constants.REGISTERS_ENDPOINT_KEY);
-            DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference(fbEndpoint);
-            // Lê dados do firebase
-            dbReference.addChildEventListener(new ChildEventListener() {
-                @Override
-                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                    RegisterCard registerCard = dataSnapshot.getValue(RegisterCard.class);
-                    RegisterCard adapter = (RegisterCard) registerList.getAdapter();
-                    adapter.addItem(questionCard);
-                }
-
-                @Override
-                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-                }
-
-                @Override
-                public void onChildRemoved(DataSnapshot dataSnapshot) {
-                    //TODO:
-                }
-
-                @Override
-                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-        }
-    }
+//    @Nullable
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+//        View rootView = inflater.inflate(R.layout.fragment_register_list, container, false);
+//        registerList = rootView.findViewById(R.id.register_list);
+//
+//        Bundle args = getArguments();
+//        if(args != null){
+////            String fbEndpoint = args.getString(Constants.REGISTERS_ENDPOINT_KEY);
+////            DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference(fbEndpoint);
+////            // Lê dados do firebase
+////            dbReference.addChildEventListener(new ChildEventListener() {
+////                @Override
+////                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+////                    RegisterCard registerCard = dataSnapshot.getValue(RegisterCard.class);
+////                    RegisterCard adapter = (RegisterCard) registerList.getAdapter();
+////                    adapter.addItem(questionCard);
+////                }
+////
+////                @Override
+////                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+////
+////                }
+////
+////                @Override
+////                public void onChildRemoved(DataSnapshot dataSnapshot) {
+////                    //TODO:
+////                }
+////
+////                @Override
+////                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+////
+////                }
+////
+////                @Override
+////                public void onCancelled(DatabaseError databaseError) {
+////
+////                }
+////            });
+//        }
+//    }
 }
