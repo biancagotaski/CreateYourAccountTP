@@ -17,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 public class FormActivity extends AppCompatActivity {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference registersRef = database.getReference(Constants.REGISTERS_ENDPOINT);
+    DatabaseReference registersRef = database.getReference(Constants.ACTIVE_REGISTERS_ENDPOINT);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +34,15 @@ public class FormActivity extends AppCompatActivity {
         EditText cpfField = findViewById(R.id.cpf_edit_text);
         EditText cityField = findViewById(R.id.city_edit_text);
 
-        final String name = nameField.getText().toString();
-        final String password = passwordField.getText().toString();
-        final String email = emailField.getText().toString();
+        String name = nameField.getText().toString();
+        String password = passwordField.getText().toString();
+        String email = emailField.getText().toString();
         String phone = phoneField.getText().toString();
         String cel = celField.getText().toString();
         String cpf = cpfField.getText().toString();
         String city = cityField.getText().toString();
 
-        RegisterCard registerCard = new RegisterCard(name, password, email, phone, cel, cpf, city);
+        final RegisterCard registerCard = new RegisterCard(name, password, email, phone, cel, cpf, city);
 
         registersRef.push().setValue(registerCard);
 
@@ -61,5 +61,6 @@ public class FormActivity extends AppCompatActivity {
 
             }
         });
+        finish();
     }
 }

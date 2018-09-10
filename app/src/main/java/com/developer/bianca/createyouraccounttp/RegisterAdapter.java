@@ -138,12 +138,12 @@ public class RegisterAdapter extends RecyclerView.Adapter{
             city = itemView.findViewById(R.id.city_field);
             //viewMore = itemView.findViewById(R.id.viewMore_field);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    DataSnapshot snapshot = dataSnapshots.get(getAdapterPosition());
-                }
-            });
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    DataSnapshot snapshot = dataSnapshots.get(getAdapterPosition());
+//                }
+//            });
         }
     }
 }

@@ -16,7 +16,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         viewPager = findViewById(R.id.view_pager);
-
+        RegisterAdapterFragment adapterFragment = new RegisterAdapterFragment(getSupportFragmentManager());
+        viewPager.setAdapter(adapterFragment);
     }
 
     public void addNewContact(View view) {
