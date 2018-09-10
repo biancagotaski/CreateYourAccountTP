@@ -27,6 +27,7 @@ public class FormActivity extends AppCompatActivity {
 
     public void saveContact(View view){
         EditText nameField = findViewById(R.id.name_edit_text);
+        EditText passwordField = findViewById(R.id.password_edit_text);
         EditText emailField = findViewById(R.id.email_edit_text);
         EditText phoneField = findViewById(R.id.phone_edit_text);
         EditText celField = findViewById(R.id.cel_edit_text);
@@ -34,13 +35,14 @@ public class FormActivity extends AppCompatActivity {
         EditText cityField = findViewById(R.id.city_edit_text);
 
         final String name = nameField.getText().toString();
+        final String password = passwordField.getText().toString();
         final String email = emailField.getText().toString();
         String phone = phoneField.getText().toString();
         String cel = celField.getText().toString();
         String cpf = cpfField.getText().toString();
         String city = cityField.getText().toString();
 
-        RegisterCard registerCard = new RegisterCard(name, email, phone, cel, cpf, city);
+        RegisterCard registerCard = new RegisterCard(name, password, email, phone, cel, cpf, city);
 
         registersRef.push().setValue(registerCard);
 

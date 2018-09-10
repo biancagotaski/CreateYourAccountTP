@@ -21,6 +21,15 @@
             android:id="@+id/password_field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            android:text="Nome"/>
+
+        <TextView
+            android:id="@+id/email_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/name_field"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
             android:text="E-mail"/>
@@ -29,7 +38,7 @@
             android:id="@+id/phone_field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/password_field"
+            android:layout_below="@+id/email_field"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:text="Telefone"/>
 
@@ -42,6 +51,34 @@
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
             android:textStyle="italic"
             android:text="Ver mais"/>
+
+        <!-- VERIFICAR POIS ESSES ELEMENTOS E MAIS O PASSWORD NÃO VÃO APARECER NO CARD  -->
+        <TextView
+            android:id="@+id/cel_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/email_field"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:visibility="invisible"
+            android:text="Celular"/>
+
+        <TextView
+            android:id="@+id/cpf_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/email_field"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:visibility="invisible"
+            android:text="CPF"/>
+
+        <TextView
+            android:id="@+id/city_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/email_field"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:visibility="invisible"
+            android:text="Cidade"/>
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

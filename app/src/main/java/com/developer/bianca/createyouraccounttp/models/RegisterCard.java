@@ -8,14 +8,16 @@ import java.io.Serializable;
 public class RegisterCard implements Serializable {
 
     private String name;
+    private String password;
     private String email;
     private String phone;
     private String cel;
     private String cpf;
     private String city;
 
-    public RegisterCard(String name, String email, String phone, String cel, String cpf, String city) {
+    public RegisterCard(String name, String password, String email, String phone, String cel, String cpf, String city) {
         this.name = name;
+        this.password = password;
         this.email = email;
         this.phone = phone;
         this.cel = cel;
@@ -28,6 +30,8 @@ public class RegisterCard implements Serializable {
         this.email = email;
         this.phone = phone;
     }
+
+    public RegisterCard(){}
 
     public String getName() {
         return name;
@@ -75,5 +79,13 @@ public class RegisterCard implements Serializable {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
