@@ -79,7 +79,6 @@ public class RegisterAdapter extends RecyclerView.Adapter{
         return new RegisterViewHolder(card);
     }
 
-    //TODO: implementar os outros textView's que faltaram (cel, cpf e cidade) **no caso da senha não será exibida.
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 //        DataSnapshot dataSnapshot = dataSnapshots.get(position);
@@ -95,8 +94,12 @@ public class RegisterAdapter extends RecyclerView.Adapter{
         RegisterViewHolder rvh = (RegisterViewHolder) holder;
 
         rvh.name.setText(registerCard.getName());
+        rvh.password.setText(registerCard.getPassword());
         rvh.email.setText(registerCard.getEmail());
         rvh.phone.setText(registerCard.getPhone());
+        rvh.cel.setText(registerCard.getCel());
+        rvh.cpf.setText(registerCard.getCpf());
+        rvh.city.setText(registerCard.getCity());
     }
 
     @Override
