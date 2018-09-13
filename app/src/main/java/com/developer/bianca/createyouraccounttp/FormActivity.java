@@ -16,23 +16,37 @@ import com.google.firebase.database.ValueEventListener;
 
 public class FormActivity extends AppCompatActivity {
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference registersRef = database.getReference(Constants.ACTIVE_REGISTERS_ENDPOINT);
+    FirebaseDatabase database;
+    DatabaseReference registersRef;
+
+    EditText nameField;
+    EditText passwordField;
+    EditText emailField;
+    EditText phoneField;
+    EditText celField;
+    EditText cpfField;
+    EditText cityField;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
+
+        database = FirebaseDatabase.getInstance();
+        registersRef = database.getReference(Constants.ACTIVE_REGISTERS_ENDPOINT);
+
+        nameField = findViewById(R.id.name_edit_text);
+        passwordField = findViewById(R.id.password_edit_text);
+        emailField = findViewById(R.id.email_edit_text);
+        phoneField = findViewById(R.id.phone_edit_text);
+        celField = findViewById(R.id.cel_edit_text);
+        cpfField = findViewById(R.id.cpf_edit_text);
+        cityField = findViewById(R.id.city_edit_text);
+
+        validateForm();
     }
 
     public void saveContact(View view){
-        EditText nameField = findViewById(R.id.name_edit_text);
-        EditText passwordField = findViewById(R.id.password_edit_text);
-        EditText emailField = findViewById(R.id.email_edit_text);
-        EditText phoneField = findViewById(R.id.phone_edit_text);
-        EditText celField = findViewById(R.id.cel_edit_text);
-        EditText cpfField = findViewById(R.id.cpf_edit_text);
-        EditText cityField = findViewById(R.id.city_edit_text);
 
         String name = nameField.getText().toString();
         String password = passwordField.getText().toString();
@@ -62,5 +76,48 @@ public class FormActivity extends AppCompatActivity {
             }
         });
         finish();
+    }
+
+    //FIXME:
+    public void validateForm(){
+        if(nameField.getText().toString().trim().equals("")){
+            nameField.requestFocus();
+            nameField.setError("Campo obrigatório");
+        }
+        if(passwordField.getText().toString().trim().equals("")){
+            passwordField.requestFocus();
+            passwordField.setError("Campo obrigatório");
+        }
+        if(emailField.getText().toString().trim().equals("")){
+            emailField.requestFocus();
+            emailField.setError("Campo obrigatório");
+        }
+        if(phoneField.getText().toString().trim().equals("")){
+            phoneField.requestFocus();
+            phoneField.setError("Campo obrigatório");
+        }
+        if(celField.getText().toString().trim().equals("")){
+            celField.requestFocus();
+            celField.setError("Campo obrigatório");
+        }
+        if(cpfField.getText().toString().trim().equals("")){
+            cpfField.requestFocus();
+            cpfField.setError("Campo obrigatório");
+        }
+        if(cityField.getText().toString().trim().equals("")){
+            cityField.requestFocus();
+            cityField.setError("Campo obrigatório");
+        }
+    }
+
+    public void clearForm(View view) {
+        nameField.getText().clear();
+        passwordField.getText().clear();
+        emailField.getText().clear();
+        phoneField.getText().clear();
+        celField.getText().clear();
+        cpfField.getText().clear();
+        cityField.getText().clear();
+        validateForm();
     }
 }

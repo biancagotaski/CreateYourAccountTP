@@ -21,7 +21,7 @@ public class RegisterPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return RegisterListFragment.newInstance(Constants.ACTIVE_REGISTERS_ENDPOINT);
             case 1:
-                return new RegisterListFragment();
+                return RemoveRegisterFragment.newInstance();
             default:
                 return null;
         }

@@ -19,11 +19,19 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class RegisterListFragment extends Fragment {
+
+    static {
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+    }
+
+    DatabaseReference dbReference;
+    String fbEndpoint;
     RecyclerView registerList;
     //OnFragmentInteractionListener fragmentInteractionListener;
     // isso é para oferecer um listener para o card e atribuir uma ação à ele
@@ -45,8 +53,8 @@ public class RegisterListFragment extends Fragment {
 
         Bundle args = getArguments();
         if (args != null) {
-            String fbEndpoint = args.getString(Constants.REGISTERS_ENDPOINT_KEY);
-            DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference(fbEndpoint);
+            fbEndpoint = args.getString(Constants.REGISTERS_ENDPOINT_KEY);
+            dbReference = FirebaseDatabase.getInstance().getReference(fbEndpoint);
 
             // Lê dados do firebase
             dbReference.addChildEventListener(new ChildEventListener() {
@@ -59,7 +67,6 @@ public class RegisterListFragment extends Fragment {
 
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
                 }
 
                 @Override
@@ -77,12 +84,20 @@ public class RegisterListFragment extends Fragment {
 
                 }
             });
-        } else {
-//            RegisterAdapter adapter = new RegisterAdapter();
-//            registerList.setAdapter(adapter);
-//            registerList.setLayoutManager(new LinearLayoutManager(getContext()));
-//            Toast.makeText(getContext(), "Argumento vazio)", Toast.LENGTH_LONG).show();
-            Toast.makeText(getContext(), "Argumento vazio", Toast.LENGTH_LONG).show();
+
+            dbReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if(!dataSnapshot.exists()){
+                        Toast.makeText(getContext(), "Lista vazia", Toast.LENGTH_LONG).show();
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
         }
         return rootView;
     }

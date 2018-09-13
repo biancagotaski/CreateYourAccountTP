@@ -19,53 +19,7 @@ import java.util.List;
 
 public class RegisterAdapter extends RecyclerView.Adapter{
 
-    private List<DataSnapshot> dataSnapshots;
-
     private List<RegisterCard> registerCards;
-
-    public RegisterAdapter(){
-        dataSnapshots = new ArrayList<>();
-    }
-
-
-//    public RegisterAdapter(String fbEndpoint){
-//       dataSnapshots = new ArrayList<>();
-//
-//        DatabaseReference dbReference = FirebaseDatabase.getInstance().getReference(fbEndpoint);
-//        dbReference.addChildEventListener(new ChildEventListener() {
-//            @Override
-//            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-//                RegisterCard registerCard = dataSnapshot.getValue(RegisterCard.class);
-//                addItem(dataSnapshot);
-//            }
-//
-//            @Override
-//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-//
-//            }
-//
-//            @Override
-//            public void onChildRemoved(DataSnapshot dataSnapshot) {
-//                String key = dataSnapshot.getKey();
-//                for(int i=0; i<dataSnapshots.size(); i++){
-//                    if(key.equals(dataSnapshots.get(i).getKey())){
-//                        removeItem(i);
-//                        break;
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
-//    }
 
     public RegisterAdapter(List<RegisterCard> registerCards){
         this.registerCards = registerCards;
@@ -81,14 +35,6 @@ public class RegisterAdapter extends RecyclerView.Adapter{
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-//        DataSnapshot dataSnapshot = dataSnapshots.get(position);
-//
-//        RegisterCard registerCard = dataSnapshot.getValue(RegisterCard.class);
-//        RegisterViewHolder viewHolder = (RegisterViewHolder) holder;
-//        viewHolder.name.setText(registerCard.getName());
-//        viewHolder.email.setText(registerCard.getEmail());
-//        viewHolder.phone.setText(registerCard.getPhone());
-//        //viewHolder.viewMore.setText(registerCard.get);
 
         RegisterCard registerCard = registerCards.get(position);
         RegisterViewHolder rvh = (RegisterViewHolder) holder;
@@ -108,16 +54,9 @@ public class RegisterAdapter extends RecyclerView.Adapter{
     }
 
     public void addItem(RegisterCard registerCard) {
-        //dataSnapshots.add(0, dataSnapshot);
         registerCards.add(0, registerCard);
         notifyDataSetChanged();
     }
-
-    //VERIFICAR O MÉTODO ABAIXO:
-//    private void removeItem(int position){
-//        registerCards.remove(position);
-//        notifyItemRemoved(position);
-//    }
 
     public class RegisterViewHolder extends RecyclerView.ViewHolder{
 
@@ -130,6 +69,7 @@ public class RegisterAdapter extends RecyclerView.Adapter{
         public TextView city;
         //public TextView viewMore;
 
+        //FIXME: viewMore
         public RegisterViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name_field);
